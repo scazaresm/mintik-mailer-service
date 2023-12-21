@@ -17,15 +17,14 @@
 // Any license notice or attribution required by the License must also
 // include this Commons Clause License Condition notice.
 //
-// Software: prod-design-services
+// Software: mintik-mailer-service
 // License: MIT License
 // Licensor: Sergio Cazares
-// Commons Clause License URL: https://github.com/scazaresm/prod-design-services/blob/main/LICENSE
+// Commons Clause License URL: https://github.com/scazaresm/mintik-mailer-service/blob/main/LICENSE
 
 const db = require('./db');
 
 const express = require('express');
-const cors = require('cors');
 
 const app = express();
 const PORT = process.env.APP_PORT;
@@ -33,7 +32,6 @@ const PORT = process.env.APP_PORT;
 const mailerJobRoutes = require('./routes/index')
 const processMailJobs = require('./processMailJobs');
 
-app.use(cors());
 app.use(express.json());
 app.use('/jobs', mailerJobRoutes);
 

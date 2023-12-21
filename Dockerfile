@@ -10,7 +10,6 @@ COPY package*.json ./
 # Install application dependencies
 RUN npm install \
   express \  
-  cors \
   axios \
   mongoose \
   nodemailer
