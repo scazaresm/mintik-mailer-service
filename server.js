@@ -29,7 +29,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.APP_PORT;
 
-const mailerJobRoutes = require('./routes/index')
+const mailerJobRoutes = require('./routes/index');
 const processMailJobs = require('./processMailJobs');
 
 app.use(express.json());

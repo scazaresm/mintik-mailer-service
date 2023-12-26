@@ -28,7 +28,7 @@ const mailTemplateSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-  },  
+  },
   description: {
     type: String,
     required: true,
@@ -39,8 +39,8 @@ const mailTemplateSchema = new mongoose.Schema({
   },
   enabled: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 });
 
 const MailTemplate = mongoose.model('MailTemplate', mailTemplateSchema, 'mail_templates');
