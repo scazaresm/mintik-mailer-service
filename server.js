@@ -31,6 +31,7 @@ const PORT = process.env.APP_PORT;
 
 const mailerJobRoutes = require('./routes/index');
 const processMailJobs = require('./processMailJobs');
+const loadMailTemplates = require('./templates/loadMailTemplates');
 
 app.use(express.json());
 app.use('/jobs', mailerJobRoutes);
@@ -43,8 +44,10 @@ app.listen(PORT, () => {
     process.exit(1);
   });
 
-  db.once('open', () => {
+  db.once('open', async () => {
     console.log('Connected to MongoDB');
+
+    await loadMailTemplates();
     setInterval(processMailJobs, process.env.POLL_INTERVAL_MS || 5000);
   });
 });

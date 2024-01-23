@@ -29,10 +29,6 @@ const mailTemplateSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-    required: true,
-  },
   htmlContent: {
     type: String,
     required: true,

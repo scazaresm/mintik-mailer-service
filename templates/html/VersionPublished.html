@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version Published</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #1a237e;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .header {
+            background-color: #1a237e;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #1a237e;
+        }
+
+        .message {
+            margin-bottom: 20px;
+        }
+
+        .details {
+            margin-top: 20px;
+            border-top: 1px solid #1a237e;
+            padding-top: 15px;
+        }
+
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2 style="color: #ffffff;">Version Published Notification</h2>
+        </div>
+        <div class="content">
+            <div class="message">
+                <p><strong>Hello #{PublisherDisplayName},</strong></p>
+				<br/>
+                <p>This notification is to inform you that your version has been published and your changes were successfully processed.</p>
+				<br/>
+				<p>Thanks.</p>
+            </div>
+            <div class="details">
+                <p><strong>Version Name:</strong> #{VersionName}</p>
+                <p><strong>Version Goal:</strong> #{VersionGoal}</p>
+                <p><strong>Publisher:</strong> <a href="mailto:#{PublisherEmail}">#{PublisherFullName}</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
