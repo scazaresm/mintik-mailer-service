@@ -44,7 +44,7 @@ function createTransporter() {
     port: process.env.SENDER_PORT,
     secure: process.env.SENDER_SECURE,
     auth: {
-      user: process.env.SENDER_ADDRESS,
+      user: process.env.SENDER_USER,
       pass: process.env.SENDER_PASS,
     },
   });
@@ -78,7 +78,7 @@ async function sendMail(job) {
   }
 
   const mailOptions = {
-    from: process.env.SENDER_ADDRESS,
+    from: process.env.SENDER_FROM,
     to: job.to,
     subject: job.subject,
     html: await buildHtmlFromTemplate(mailTemplate, job.contentVariables),
