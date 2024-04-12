@@ -17,39 +17,18 @@
 // Any license notice or attribution required by the License must also
 // include this Commons Clause License Condition notice.
 //
-// Software: mintik-mailer-service
+// Software: mintik-authentication-service
 // License: MIT License
 // Licensor: Sergio Cazares
-// Commons Clause License URL: https://github.com/scazaresm/mintik-mailer-service/blob/main/LICENSE
+// Commons Clause License URL: https://github.com/scazaresm/mintik-authentication-service/blob/main/LICENSE
 
-const db = require('./db');
-
-const express = require('express');
-
-const app = express();
-const PORT = process.env.APP_PORT;
-
-const mailerJobRoutes = require('./routes/index');
-const processMailJobs = require('./processMailJobs');
-const loadMailTemplates = require('./templates/loadMailTemplates');
-
-app.use(express.json());
-app.use('/', mailerJobRoutes);
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-
-  db.on('error', (error) => {
-    console.error('MongoDB connection error:', error);
-    process.exit(1);
+function handleHealthCheck(req, res) {
+  res.status(200).json({
+    status: 'Service is up and running.',
+    version: '1.1.0',
+    releaseDate: 'April 12th, 2024',
   });
+}
 
-  db.once('open', async () => {
-    console.log('Connected to MongoDB');
-
-    await loadMailTemplates();
-    setInterval(processMailJobs, process.env.POLL_INTERVAL_MS || 5000);
-  });
-});
-
+module.exports = handleHealthCheck;
 

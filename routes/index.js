@@ -27,8 +27,10 @@ const router = express.Router();
 
 const authenticateToken = require('../middleware/authenticateToken');
 const handleCreateMailJob = require('./handlers/handleCreateMailJob');
+const handleHealthCheck = require('./handlers/handleHealthCheck');
 
-router.post('/', authenticateToken, handleCreateMailJob);
+router.post('/jobs', authenticateToken, handleCreateMailJob);
+router.get('/health', handleHealthCheck);
 
 module.exports = router;
 
